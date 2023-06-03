@@ -41,7 +41,7 @@ const Cards = () => {
           setUsers((prevUsers) => [...prevUsers, ...response]);
         }
 
-        if (response.length === 0) {
+        if (response.length < pageSize) {
           setHasMore(false);
         }
       } catch (error) {
@@ -104,7 +104,7 @@ const Cards = () => {
   };
 
   const elements = users.map(
-    ({ id, user, tweets, followers, avatar = avatarPlug, following }) => {
+    ({ id, user, tweets, followers, avatar, following }) => {
       return (
         <CardBlock key={id}>
           <LogoSvg>
@@ -112,7 +112,7 @@ const Cards = () => {
           </LogoSvg>
           <Image src={pixelRatio === 2 ? picture_2x : picture_1x} alt="logo" />
           <Circle>
-            <Avatar src={avatar} alt="avatar" />
+            <Avatar src={avatar || avatarPlug} alt="avatar" />
           </Circle>
           <Line />
           <Info>
