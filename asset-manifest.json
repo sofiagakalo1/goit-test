@@ -1,16 +1,19 @@
 {
   "files": {
-    "main.css": "/goit-test/static/css/main.073c9b0a.css",
-    "main.js": "/goit-test/static/js/main.d0418f09.js",
+    "main.css": "/goit-test/static/css/main.7c01b673.css",
+    "main.js": "/goit-test/static/js/main.7d88a7d9.js",
     "static/js/787.0b4c2dfb.chunk.js": "/goit-test/static/js/787.0b4c2dfb.chunk.js",
-    "static/media/logo.svg": "/goit-test/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/picture@2x.png": "/goit-test/static/media/picture@2x.014134acdd84a401f00a.png",
+    "static/media/picture@1x.png": "/goit-test/static/media/picture@1x.010ab3c33bc13f300d33.png",
+    "static/media/Hansel.png": "/goit-test/static/media/Hansel.2949de8d79b6051304c1.png",
+    "static/media/icons.svg": "/goit-test/static/media/icons.fd23f606a566d5c17795fb00383e6e65.svg",
     "index.html": "/goit-test/index.html",
-    "main.073c9b0a.css.map": "/goit-test/static/css/main.073c9b0a.css.map",
-    "main.d0418f09.js.map": "/goit-test/static/js/main.d0418f09.js.map",
+    "main.7c01b673.css.map": "/goit-test/static/css/main.7c01b673.css.map",
+    "main.7d88a7d9.js.map": "/goit-test/static/js/main.7d88a7d9.js.map",
     "787.0b4c2dfb.chunk.js.map": "/goit-test/static/js/787.0b4c2dfb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.d0418f09.js"
+    "static/css/main.7c01b673.css",
+    "static/js/main.7d88a7d9.js"
   ]
 }
