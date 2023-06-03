@@ -1,6 +1,6 @@
 import {
   Container,
-  Cards,
+  CardsList,
   CardBlock,
   LogoSvg,
   Image,
@@ -19,7 +19,7 @@ import avatarPlug from "../../images/Hansel.png";
 import { useState, useEffect } from "react";
 import { getAllUsers } from "../../services/API/users";
 
-const Card = () => {
+const Cards = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -41,6 +41,34 @@ const Card = () => {
     fetchUsers();
   }, []);
 
+  useEffect(() => {
+    if (users.length === 0) {
+      const storedUsers = localStorage.getItem("users");
+      console.log("storedUsers:", storedUsers);
+      if (storedUsers) {
+        setUsers(JSON.parse(storedUsers));
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("users", JSON.stringify(users));
+    console.log("updated users:", users);
+  }, [users]);
+
+  const onFollowClick = (id) => {
+    setUsers((prevUsers) => {
+      return prevUsers.map((user) => {
+        if (user.id === id) {
+          return {
+            ...user,
+            followers: user.followers + 1,
+          };
+        }
+        return user;
+      });
+    });
+  };
   const elements = users.map(({ id, user, tweets, followers, avatar }) => {
     if (avatar) {
       return (
@@ -57,12 +85,12 @@ const Card = () => {
             <InfoText>{tweets} TWEETS</InfoText>
             <InfoText>{followers} FOLLOWERS</InfoText>
           </Info>
-          <Button>FOLLOW</Button>
+          <Button onClick={() => onFollowClick(id)}>FOLLOW</Button>
         </CardBlock>
       );
     } else {
       return (
-        <CardBlock>
+        <CardBlock key={id}>
           <LogoSvg>
             <use xlinkHref={`${sprite}#logo-icon`} fill></use>
           </LogoSvg>
@@ -72,19 +100,23 @@ const Card = () => {
           </Circle>
           <Line />
           <Info>
-            <InfoText>777 TWEETS</InfoText>
-            <InfoText>100,500 FOLLOWERS</InfoText>
+            <InfoText>{tweets} TWEETS</InfoText>
+            <InfoText>{followers} FOLLOWERS</InfoText>
           </Info>
-          <Button>FOLLOW</Button>
+          <Button onClick={() => onFollowClick(id)}>FOLLOW</Button>
         </CardBlock>
       );
     }
   });
   return (
     <Container>
-      <Cards>{elements}</Cards>
+      <CardsList>
+        {loading && <p>Loading...</p>}
+        {error && <p>Error...</p>}
+        {elements}
+      </CardsList>
     </Container>
   );
 };
 
-export default Card;
+export default Cards;

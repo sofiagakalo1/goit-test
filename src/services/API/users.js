@@ -5,6 +5,6 @@ const contactsInstance = axios.create({
   });
   export const getAllUsers = async () => {
     const response = await contactsInstance.get('/');
-    console.log(response);
+    // console.log(response);
     return response.data;
   };

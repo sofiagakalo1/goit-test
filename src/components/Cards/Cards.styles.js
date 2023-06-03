@@ -14,8 +14,10 @@ export const Container = styled.div`
   padding: 0;
 `;
 
-export const Cards = styled.ul`
+export const CardsList = styled.ul`
   display: flex;
+  flex-wrap:wrap;
+  gap:20px;
   justify-content: center;
 `;
 
@@ -68,7 +70,7 @@ export const Line = styled.div`
   position: absolute;
   top: 214px;
   z-index: 1;
-  width: 380px;
+  width: 100%;
   height: 8px;
 
   background: #ebd8ff;
