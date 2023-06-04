@@ -35,10 +35,14 @@ const Cards = () => {
         setLoading(true);
         const response = await getAllUsers(page, pageSize);
 
+        const filteredUsers = response.filter((newUser) => {
+          return !users.some((existingUser) => existingUser.id === newUser.id);
+        });
+
         if (page === 1) {
-          setUsers(response);
+          setUsers(filteredUsers);
         } else {
-          setUsers((prevUsers) => [...prevUsers, ...response]);
+          setUsers((prevUsers) => [...prevUsers, ...filteredUsers]);
         }
 
         if (response.length < pageSize) {
@@ -54,7 +58,7 @@ const Cards = () => {
       fetchUsers();
     }
     const storedUsers = localStorage.getItem("users");
-    if (!storedUsers) {
+    if (!storedUsers && page === 1) {
       fetchUsers();
     }
   }, [page]);
@@ -65,6 +69,12 @@ const Cards = () => {
       setUsers(JSON.parse(storedUsers));
     }
   }, []);
+  
+  useEffect(() => {
+    if (users.length > 0) {
+      localStorage.setItem("users", JSON.stringify(users));
+    }
+  }, [users]);
 
   const onFollowClick = (id) => {
     setUsers((prevUsers) => {
@@ -110,8 +120,9 @@ const Cards = () => {
   console.log("users:", users);
   const elements = users.map(
     ({ id, user, tweets, followers, avatar, following }) => {
+      const key = `${id}_${following}`;
       return (
-        <CardBlock key={id}>
+        <CardBlock key={key}>
           <LogoSvg>
             <use xlinkHref={`${sprite}#logo-icon`} fill></use>
           </LogoSvg>
