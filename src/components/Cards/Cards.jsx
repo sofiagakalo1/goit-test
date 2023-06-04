@@ -50,27 +50,25 @@ const Cards = () => {
         setLoading(false);
       }
     };
-
-    fetchUsers();
+    if (page > 1) {
+      fetchUsers();
+    }
+    const storedUsers = localStorage.getItem("users");
+    if (!storedUsers) {
+      fetchUsers();
+    }
   }, [page]);
 
-  // useEffect(() => {
-  //   if (users.length === 0) {
-  //     const storedUsers = localStorage.getItem("users");
-  //     console.log("storedUsers:", storedUsers);
-  //     if (storedUsers) {
-  //       setUsers(JSON.parse(storedUsers));
-  //     }
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   localStorage.setItem("users", JSON.stringify(users));
-  // }, [users]);
+  useEffect(() => {
+    const storedUsers = localStorage.getItem("users");
+    if (storedUsers) {
+      setUsers(JSON.parse(storedUsers));
+    }
+  }, []);
 
   const onFollowClick = (id) => {
     setUsers((prevUsers) => {
-      return prevUsers.map((user) => {
+      const updatedUsers = prevUsers.map((user) => {
         if (user.id === id) {
           return {
             ...user,
@@ -80,11 +78,14 @@ const Cards = () => {
         }
         return user;
       });
+
+      localStorage.setItem("users", JSON.stringify(updatedUsers));
+      return updatedUsers;
     });
   };
   const onUnFollowClick = (id) => {
     setUsers((prevUsers) => {
-      return prevUsers.map((user) => {
+      const updatedUsers = prevUsers.map((user) => {
         if (user.id === id) {
           return {
             ...user,
@@ -94,6 +95,9 @@ const Cards = () => {
         }
         return user;
       });
+
+      localStorage.setItem("users", JSON.stringify(updatedUsers));
+      return updatedUsers;
     });
   };
 
@@ -103,6 +107,7 @@ const Cards = () => {
     }
   };
 
+  console.log("users:", users);
   const elements = users.map(
     ({ id, user, tweets, followers, avatar, following }) => {
       return (
@@ -139,7 +144,9 @@ const Cards = () => {
         {elements}
       </CardsList>
       {loading && <Loader />}
-      {hasMore && <Button onClick={loadMoreUsers}>Load More</Button>}
+      {!loading && hasMore && (
+        <Button onClick={loadMoreUsers}>Load More</Button>
+      )}
     </Container>
   );
 };
