@@ -50,7 +50,7 @@ const TweetItem = ({ user }) => {
   return (
     <CardBlock key={user.id}>
       <LogoSvg>
-        <use xlinkHref={`${sprite}#logo-icon`} fill></use>
+        <use xlinkHref={`${sprite}#logo-icon`}></use>
       </LogoSvg>
       <Image src={pixelRatio === 2 ? picture_2x : picture_1x} alt="logo" />
       <Circle>

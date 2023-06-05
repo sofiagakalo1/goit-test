@@ -12,10 +12,10 @@ export const Header = styled.div`
   flex-direction: row;
   padding: 15px 20px;
   position: sticky;
-  top:0;
-  z-index:999;
+  top: 0;
+  z-index: 999;
   background-color: #5cd3a8;
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,.12), 0 1px 2px 0 rgba(0,0,0,.24);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
 `;
 export const LogoSvg = styled.svg`
   position: absolute;
