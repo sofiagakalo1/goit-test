@@ -1,4 +1,4 @@
-<h1>Tweets app</h1>
+![icon](./public//icon.png)<h1>Tweets app</h1>
 
 <h2>The app was created to view people's tweet cards, with the opportunity to start following them or unfollow if necessary, as well as the ability to filter tweets by their status.</h2>
 
