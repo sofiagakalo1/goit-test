@@ -1,8 +1,8 @@
-import { Container, Button } from "./TweetsPage.styles.js";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { Container, Button, LinkStyled } from "./TweetsPage.styles.js";
 import Loader from "../../components/Loader";
 import TweetsList from "../../components/TweetsList/TweetsList";
-
-import { useState, useEffect } from "react";
 import { getAllUsers } from "../../services/API/users";
 
 const TweetsPage = () => {
@@ -12,6 +12,8 @@ const TweetsPage = () => {
   const [error, setError] = useState(null);
   const [hasMore, setHasMore] = useState(true);
   const pageSize = 3;
+
+  const location = useLocation();
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -45,6 +47,7 @@ const TweetsPage = () => {
 
   return (
     <Container>
+      <LinkStyled to={location.state?.from ?? "/"}>Go back</LinkStyled>
       <TweetsList users={users} />
       {error && <p>Error...</p>}
       {loading && <Loader />}

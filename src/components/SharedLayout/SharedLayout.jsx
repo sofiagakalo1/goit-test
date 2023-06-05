@@ -20,7 +20,7 @@ const SharedLayout = () => {
           <NavLinkStyled to="/" active={location.pathname === "/"}>
             Home
           </NavLinkStyled>
-          <NavLinkStyled to="/tweets" active={location.pathname === "/tweets"}>
+          <NavLinkStyled to="/tweets" active={location.pathname === "/tweets"} state={{ from: location }}>
             Tweets
           </NavLinkStyled>
         </Navigation>

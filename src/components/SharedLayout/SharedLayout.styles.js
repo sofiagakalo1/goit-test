@@ -11,7 +11,11 @@ export const Header = styled.div`
   display: flex;
   flex-direction: row;
   padding: 15px 20px;
+  position: sticky;
+  top:0;
+  z-index:999;
   background-color: #5cd3a8;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.12), 0 1px 2px 0 rgba(0,0,0,.24);
 `;
 export const LogoSvg = styled.svg`
   position: absolute;
@@ -32,9 +36,9 @@ export const NavLinkStyled = styled(NavLink)`
   text-decoration: none;
   font-family: "Montserrat", sans-serif;
   font-style: normal;
-  font-weight: 600;
-  font-size: 18px;
-  line-height: calc(22 / 18);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: calc(26 / 24);
   color: ${(props) => (props.active ? "rgb(87, 54, 163)" : "rgb(55, 55, 55)")};
   transition: color 250ms ease 0s;
   &:hover {
