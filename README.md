@@ -1,4 +1,4 @@
-<p align="center">
+<p>
   <img src="./public/icon.png" alt="Icon" width="50" height="50" />
   <h1>Tweets app</h1>
 </p>
