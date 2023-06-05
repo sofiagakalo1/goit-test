@@ -5,6 +5,7 @@
 <h3>App was created with React-create-app.</h3>
 
 <img src="./public/tech-stack.png" alt="Alt Text" width="30" height="30" />Tech stack:
+
 <ul>
 <li>React.js, </li>
 <li>React-router-dom,</li> 
@@ -14,7 +15,7 @@
 <li>mockAPI,</li>
 <li>Github pages,</li>
 <li>Git.</li>
-</ul> 
+</ul>
 
 <h2>How to use:</h2>
 
@@ -26,9 +27,11 @@
 
 4. You can filter all users' tweet cards by clicking on one of the filters: "show all," "follow," or "following."
 
-    By choosing the "Show all" filter, you can see all users, whether you are following them or not.
-    By choosing the "Follow" filter, you can see all users you are not following yet.
-    By choosing the "Following" filter, you can see only users you are already following.
+    <ul>
+    <li>By choosing the "Show all" filter, you can see all users, whether you are following them or not.</li>
+    <li>By choosing the "Follow" filter, you can see all users you are not following yet.</li>
+    <li>By choosing the "Following" filter, you can see only users you are already following.</li>
+    </ul>
 
 5. Reloading the page will save all the results.
 
