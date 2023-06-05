@@ -16,10 +16,17 @@ import picture_1x from "../../images/picture@1x.png";
 import picture_2x from "../../images/picture@2x.png";
 import avatarPlug from "../../images/Hansel.png";
 
+const formatNumberWithCommas = (number) => {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
+  
 const Card = ({ user }) => {
   const [isFollowed, setIsFollowed] = useState(user.isFollowed ?? false);
   const [followers, setFollowers] = useState(user.followers);
   const pixelRatio = window.devicePixelRatio;
+
+  const formattedFollowers = formatNumberWithCommas(followers);
 
   const onFollowClick = () => {
     try {
@@ -53,7 +60,7 @@ const Card = ({ user }) => {
       <Line />
       <Info>
         <InfoText>{user.tweets} TWEETS</InfoText>
-        <InfoText>{followers.toLocaleString()} FOLLOWERS</InfoText>
+        <InfoText>{formattedFollowers} FOLLOWERS</InfoText>
       </Info>
       <Button
         onClick={isFollowed ? onUnfollowClick : onFollowClick}
