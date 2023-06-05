@@ -1,7 +1,9 @@
-import { Container } from "./HomePage.styles";
+import { Container,Title } from "./HomePage.styles";
 
 const HomePage = () => {
-  return <Container>Home</Container>;
+  return <Container>
+    <Title>Welcome to tweet app!</Title>
+  </Container>;
 };
 
 export default HomePage;
