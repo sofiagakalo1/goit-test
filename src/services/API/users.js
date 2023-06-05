@@ -13,3 +13,22 @@ export const getAllUsers = async (page, pageSize) => {
   // console.log(response);
   return response.data;
 };
+export const getTotalHits = async () => {
+  const response = await contactsInstance.get("/");
+  // console.log(response);
+  return response.data;
+};
+
+export const addFollower=async(id, followers)=>{
+   await contactsInstance.put(`/${id}`,{
+    followers,
+    isFollowed:true,
+  });
+}
+
+export const deleteFollower=async(id, followers)=>{
+  await contactsInstance.put(`/${id}`,{
+   followers,
+   isFollowed:false,
+ });
+}
