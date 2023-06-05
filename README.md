@@ -17,6 +17,7 @@ Tech stack:
 </ul> 
 
 <h2>How to use:</h2>
+
 1. Choose the necessary page from the header navigation: home or tweets.
 
 2. On the tweets page, you can see different cards with other users' tweets. You can start following them by clicking the "FOLLOW" button, and then you can see the quantity of followers changing. If you don't want to follow them anymore, you can click the "FOLLOWING" button.
