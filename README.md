@@ -1,7 +1,4 @@
-<p>
-  <img src="./public/icon.png" alt="Icon" width="50" height="50" />
-  <h1>Tweets app</h1>
-</p>
+#[icon](./public//icon.png)Tweets app
 
 <h2>The app was created to view people's tweet cards, with the opportunity to start following them or unfollow if necessary, as well as the ability to filter tweets by their status.</h2>
 
