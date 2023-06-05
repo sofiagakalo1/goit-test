@@ -4,7 +4,7 @@
 
 <h3>App was created with React-create-app.</h3>
 
-![Tech stack](./public//tech-stack.png)Tech stack:
+<img src="./public/tech-stack.png" alt="Alt Text" width="30" height="30" />Tech stack:
 <ul>
 <li>React.js, </li>
 <li>React-router-dom,</li> 
