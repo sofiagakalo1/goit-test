@@ -93,7 +93,6 @@ export const InfoText = styled.p`
   font-weight: 500;
   font-size: 20px;
   line-height: calc(24 / 20);
-
   color: #ebd8ff;
 `;
 

@@ -8,7 +8,7 @@ import {
   Info,
   InfoText,
   Button,
-} from "./Card.styles";
+} from "./TweetItem.styles";
 import { useState } from "react";
 import { addFollower, deleteFollower } from "../../services/API/users";
 import sprite from "../../images/icons.svg";
@@ -17,11 +17,10 @@ import picture_2x from "../../images/picture@2x.png";
 import avatarPlug from "../../images/Hansel.png";
 
 const formatNumberWithCommas = (number) => {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  };
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
 
-  
-const Card = ({ user }) => {
+const TweetItem = ({ user }) => {
   const [isFollowed, setIsFollowed] = useState(user.isFollowed ?? false);
   const [followers, setFollowers] = useState(user.followers);
   const pixelRatio = window.devicePixelRatio;
@@ -72,4 +71,4 @@ const Card = ({ user }) => {
   );
 };
 
-export default Card;
+export default TweetItem;

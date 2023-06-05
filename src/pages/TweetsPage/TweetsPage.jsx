@@ -1,11 +1,11 @@
-import { Container, CardsList, Button } from "./Cards.styles";
-import Loader from "../Loader";
-import Card from "../Card/Card";
+import { Container, Button } from "./TweetsPage.styles.js";
+import Loader from "../../components/Loader";
+import TweetsList from "../../components/TweetsList/TweetsList";
 
 import { useState, useEffect } from "react";
 import { getAllUsers } from "../../services/API/users";
 
-const Cards = () => {
+const TweetsPage = () => {
   const [users, setUsers] = useState([]);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
@@ -43,15 +43,10 @@ const Cards = () => {
     }
   };
 
-  const elements = users.map((user) => {
-    return <Card user={user} />;
-  });
   return (
     <Container>
-      <CardsList>
-        {error && <p>Error...</p>}
-        {elements}
-      </CardsList>
+      <TweetsList users={users} />
+      {error && <p>Error...</p>}
       {loading && <Loader />}
       {!loading && hasMore && (
         <Button onClick={loadMoreUsers}>Load More</Button>
@@ -60,4 +55,4 @@ const Cards = () => {
   );
 };
 
-export default Cards;
+export default TweetsPage;

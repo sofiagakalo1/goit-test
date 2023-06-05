@@ -1,19 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
-  margin: 50px auto;
-  padding: 0;
+  padding: 25px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-export const CardsList = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
 `;
 
 export const Button = styled.button`
@@ -29,7 +20,7 @@ export const Button = styled.button`
   line-height: calc(22 / 18);
   color: #373737;
 
-  background-color: ${(props) => (props.following ? "#5CD3A8" : "#ebd8ff")};
+  background-color: #5CD3A8;
   border: none;
   border-radius: 10.3108px;
   box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
@@ -38,6 +29,6 @@ export const Button = styled.button`
 
   &:hover,
   &:active {
-    background-color: ${(props) => (props.following ? "#de5d5d" : "#5CD3A8")};
+    background-color:#de5d5d};
   }
 `;
