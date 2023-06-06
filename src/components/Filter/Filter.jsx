@@ -5,19 +5,19 @@ const Filter = ({ selectedFilter, onFilterChange }) => {
     <FilterField>
       <List>
         <Button
-          active={selectedFilter === "all"}
+          active={selectedFilter === "all" ? "true" : undefined}
           onClick={() => onFilterChange("all")}
         >
           Show all
         </Button>
         <Button
-          active={selectedFilter === "follow"}
+          active={selectedFilter === "follow" ? "true" : undefined}
           onClick={() => onFilterChange("follow")}
         >
           Follow
         </Button>
         <Button
-          active={selectedFilter === "following"}
+          active={selectedFilter === "following" ? "true" : undefined}
           onClick={() => onFilterChange("following")}
         >
           Followings

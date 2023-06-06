@@ -7,6 +7,12 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
 `;
+export const ButtonsStyled = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap:10px;
+`;
 
 export const Button = styled.button`
   margin-top: 26px;

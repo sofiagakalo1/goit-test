@@ -14,10 +14,10 @@ export const Button = styled.button`
   cursor: pointer;
   transition: background-color 250ms ease, color 250ms ease;
   background-color: ${(props) =>
-    props.active ? "rgb(71, 28, 169)" : "rgb(235, 216, 255)"};
+    props.active === "true" ? "rgb(71, 28, 169)" : "rgb(235, 216, 255)"};
   border: 1px solid rgb(71, 28, 169);
   color: ${(props) =>
-    props.active ? "rgb(235, 216, 255)" : "rgb(55, 55, 55)"};
+    props.active === "true" ? "rgb(235, 216, 255)" : "rgb(55, 55, 55)"};
   &:hover {
     background-color: rgb(71, 28, 169);
     color: rgb(235, 216, 255);

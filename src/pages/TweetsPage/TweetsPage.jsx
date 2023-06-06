@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { Container, Button, LinkStyled } from "./TweetsPage.styles.js";
+import { Container, Button, LinkStyled, ButtonsStyled } from "./TweetsPage.styles.js";
 import Loader from "../../components/Loader";
 import TweetsList from "../../components/TweetsList/TweetsList";
 import Filter from "../../components/Filter/Filter.jsx";
@@ -12,7 +12,9 @@ const TweetsPage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [hasMore, setHasMore] = useState(true);
-  const [filter, setFilter] = useState("all");
+  const [selectedFilter, setSelectedFilter] = useState("all");
+  const [filteredUsers, setFilteredUsers] = useState([]);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   const pageSize = 3;
 
@@ -42,32 +44,46 @@ const TweetsPage = () => {
     fetchUsers();
   }, [page]);
 
+  useEffect(() => {
+    const filteredList = users.filter((user) => {
+      if (selectedFilter === "all") {
+        return true;
+      } else if (selectedFilter === "follow") {
+        return !user.isFollowed;
+      } else if (selectedFilter === "following") {
+        return user.isFollowed;
+      }
+      return null;
+    });
+    setFilteredUsers(filteredList);
+  }, [selectedFilter, users]);
+
   const loadMoreUsers = () => {
     if (!loading && hasMore) {
       setPage((prevPage) => prevPage + 1);
     }
   };
-
-  const handleFilterChange = (selectedFilter) => {
-    setFilter(selectedFilter);
+  const handleFilterClick = () => {
+    setIsFilterOpen(!isFilterOpen);
   };
 
-  const filteredUsers = users.filter((user) => {
-    if (filter === "all") {
-      return true;
-    } else if (filter === "following") {
-      return user.isFollowed;
-    } else if (filter === "follow") {
-      return !user.isFollowed;
-    }
-    return false;
-  });
+  const handleFilterChange = (selectedFilter) => {
+    setSelectedFilter(selectedFilter);
+  };
 
   return (
     <Container>
+      <ButtonsStyled>
       <LinkStyled to={location.state?.from ?? "/"}>Go back</LinkStyled>
-      <Filter onFilterChange={handleFilterChange} selectedFilter={filter}/>
-      <TweetsList users={filteredUsers} filter={filter} />
+      <LinkStyled onClick={handleFilterClick}>Filter</LinkStyled>
+      </ButtonsStyled>
+      {isFilterOpen && (
+        <Filter
+          onFilterChange={handleFilterChange}
+          selectedFilter={selectedFilter}
+        />
+      )}
+      <TweetsList users={filteredUsers} />
       {error && <p>Error...</p>}
       {loading && <Loader />}
       {!loading && hasMore && (
