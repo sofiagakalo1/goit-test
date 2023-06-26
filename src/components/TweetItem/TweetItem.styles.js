@@ -69,6 +69,7 @@ export const Avatar = styled.img`
   display: block;
   width: 80%;
   height: 80%;
+  overflow: hidden;
   border-radius: 50%;
   background: linear-gradient(
     114.99deg,
