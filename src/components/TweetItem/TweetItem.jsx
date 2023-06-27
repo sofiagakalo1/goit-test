@@ -1,13 +1,13 @@
 import {
-  CardBlock,
+  Card,
   LogoSvg,
   Image,
-  Circle,
-  Line,
-  Avatar,
+  AvatarWrapper,
   Info,
   InfoText,
   Button,
+  ImagesWrapper,
+  UserInfoWrapper,
 } from "./TweetItem.styles";
 import { useState } from "react";
 import { addFollower, deleteFollower } from "../../services/API/users";
@@ -48,26 +48,29 @@ const TweetItem = ({ user }) => {
   };
 
   return (
-    <CardBlock key={user.id}>
-      <LogoSvg>
-        <use xlinkHref={`${sprite}#logo-icon`}></use>
-      </LogoSvg>
-      <Image src={pixelRatio === 2 ? picture_2x : picture_1x} alt="logo" />
-      <Circle>
-        <Avatar src={user.avatar || avatarPlug} alt="avatar" />
-      </Circle>
-      <Line />
+    <Card key={user.id}>
+      <ImagesWrapper>
+        <LogoSvg>
+          <use xlinkHref={`${sprite}#logo-icon`}></use>
+        </LogoSvg>
+        <Image src={pixelRatio === 2 ? picture_2x : picture_1x} alt="logo" />
+      </ImagesWrapper>
+      <UserInfoWrapper>
+      <AvatarWrapper>
+        <img src={user.avatar || avatarPlug} alt="avatar" />
+      </AvatarWrapper>
       <Info>
         <InfoText>{user.tweets} TWEETS</InfoText>
         <InfoText>{formattedFollowers} FOLLOWERS</InfoText>
       </Info>
+      </UserInfoWrapper>
       <Button
         onClick={isFollowed ? onUnfollowClick : onFollowClick}
         following={isFollowed}
       >
         {isFollowed ? "UNFOLLOW" : "FOLLOW"}
       </Button>
-    </CardBlock>
+    </Card>
   );
 };
 

@@ -1,14 +1,6 @@
 import styled from "styled-components";
 
-export const LogoSvg = styled.svg`
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  width: 76px;
-  height: 22px;
-`;
-
-export const CardBlock = styled.li`
+export const Card = styled.li`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -26,61 +18,82 @@ export const CardBlock = styled.li`
   border-radius: 20px;
 `;
 
+export const ImagesWrapper = styled.div`
+  position: relative;
+  padding: 28px 36px 18px 36px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: #ebd8ff;
+    box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06),
+      inset 0px -1.71846px 3.43693px #ae7be3,
+      inset 0px 3.43693px 2.5777px #fbf8ff;
+  }
+`;
+
+export const LogoSvg = styled.svg`
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 76px;
+  height: 22px;
+`;
+
 export const Image = styled.img`
   display: block;
   width: 308px;
   height: 168px;
-  padding: 28px 36px 18px 36px;
 `;
 
-export const Circle = styled.div`
-  position: absolute;
-  left: 150px;
-  z-index: 2;
+export const UserInfoWrapper = styled.div``;
+
+export const AvatarWrapper = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 50%;
+  padding: 8px;
+
   width: 80px;
   height: 80px;
-  top: 47%;
-  left: 50%;
-  transform: translate(-43%, -50%);
-
-  background: #ebd8ff;
-  box-shadow: 0px 4.39163px 4.39163px rgba(0, 0, 0, 0.06),
-    inset 0px -2.19582px 4.39163px #ae7be3,
-    inset 0px 4.39163px 3.29372px #fbf8ff;
-
+  transform: translate(-50%, -50%);
   border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-export const Line = styled.div`
-  position: absolute;
-  top: 214px;
-  z-index: 1;
-  width: 100%;
-  height: 8px;
-
-  background: #ebd8ff;
-  box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.06),
-    inset 0px -1.71846px 3.43693px #ae7be3, inset 0px 3.43693px 2.5777px #fbf8ff;
-`;
-
-export const Avatar = styled.img`
-  display: block;
-  width: 80%;
-  height: 80%;
   overflow: hidden;
-  border-radius: 50%;
-  background: linear-gradient(
-    114.99deg,
-    #471ca9 -0.99%,
-    #5736a3 54.28%,
-    #4b2a99 78.99%
-  );
+  box-sizing: border-box;
+
+  & img {
+    z-index: 1;
+    border-radius: 50%;
+    background: linear-gradient(
+      114.99deg,
+      #471ca9 -0.99%,
+      #5736a3 54.28%,
+      #4b2a99 78.99%
+    );
+  }
+  &::before {
+    content: "";
+    z-index: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #ebd8ff;
+    box-shadow: 0px 4.39163px 4.39163px rgba(0, 0, 0, 0.06),
+      inset 0px -2.19582px 4.39163px #ae7be3,
+      inset 0px 4.39163px 3.29372px #fbf8ff;
+  }
 `;
 
 export const Info = styled.div`
-  margin-top: 62px;
   display: flex;
   flex-direction: column;
   gap: 16px;
