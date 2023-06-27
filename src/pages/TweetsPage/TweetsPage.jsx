@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { Container, Button, LinkStyled, ButtonsStyled } from "./TweetsPage.styles.js";
+import {
+  Container,
+  Button,
+  LinkStyled,
+  ButtonsStyled,
+} from "./TweetsPage.styles.js";
 import Loader from "../../components/Loader";
 import TweetsList from "../../components/TweetsList/TweetsList";
 import Filter from "../../components/Filter/Filter.jsx";
@@ -42,7 +47,7 @@ const TweetsPage = () => {
       }
     };
     fetchUsers();
-  }, [page]);
+  }, [page, selectedFilter]);
 
   useEffect(() => {
     const filteredList = users.filter((user) => {
@@ -74,8 +79,8 @@ const TweetsPage = () => {
   return (
     <Container>
       <ButtonsStyled>
-      <LinkStyled to={location.state?.from ?? "/"}>Go back</LinkStyled>
-      <LinkStyled onClick={handleFilterClick}>Filter</LinkStyled>
+        <LinkStyled to={location.state?.from ?? "/"}>Go back</LinkStyled>
+        <LinkStyled onClick={handleFilterClick}>Filter</LinkStyled>
       </ButtonsStyled>
       {isFilterOpen && (
         <Filter

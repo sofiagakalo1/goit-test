@@ -56,13 +56,13 @@ const TweetItem = ({ user }) => {
         <Image src={pixelRatio === 2 ? picture_2x : picture_1x} alt="logo" />
       </ImagesWrapper>
       <UserInfoWrapper>
-      <AvatarWrapper>
-        <img src={user.avatar || avatarPlug} alt="avatar" />
-      </AvatarWrapper>
-      <Info>
-        <InfoText>{user.tweets} TWEETS</InfoText>
-        <InfoText>{formattedFollowers} FOLLOWERS</InfoText>
-      </Info>
+        <AvatarWrapper>
+          <img src={user.avatar || avatarPlug} alt="avatar" />
+        </AvatarWrapper>
+        <Info>
+          <InfoText>{user.tweets} TWEETS</InfoText>
+          <InfoText>{formattedFollowers} FOLLOWERS</InfoText>
+        </Info>
       </UserInfoWrapper>
       <Button
         onClick={isFollowed ? onUnfollowClick : onFollowClick}
